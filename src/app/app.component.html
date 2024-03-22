@@ -1,21 +1,68 @@
-<body>
-  <div class="container">
-    <div class="sidebar">
-      <img src="imagen.jpg" alt="Imagen de ejemplo" />
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo de Maquetación</title>
+    <style>
+      .container {
+        display: flex;
+      }
+
+      .sidebar {
+        width: 200px;
+        background-color: #f0f0f0;
+        padding: 20px;
+      }
+
+      .main-content {
+        flex-grow: 1;
+        padding: 20px;
+      }
+
+      .row {
+        margin-bottom: 20px;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 24px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 20px;
+      }
+
+      p {
+        margin: 0;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <img src="imagen.jpg" alt="Imagen de ejemplo" />
+      </div>
+      <div class="main-content">
+        <div class="row">
+          <h1>Título</h1>
+        </div>
+        <div class="row">
+          <h2>1935</h2>
+        </div>
+        <div class="row">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="main-content">
-      <div class="row">
-        <h1>Título</h1>
-      </div>
-      <div class="row">
-        <h2>1935</h2>
-      </div>
-      <div class="row">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </div>
-    </div>
-  </div>
-</body>
+  </body>
+</html>

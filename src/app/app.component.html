@@ -3,38 +3,238 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ejemplo de Maquetación</title>
+    <title>Ejercicio2</title>
+    <style>
+      .container {
+        min-width: 100% !important;
+        padding: 0;
+      }
+    </style>
   </head>
+
   <body>
-    <div class="container" style="display: flex">
-      <div
-        class="sidebar"
-        style="width: 200px; background-color: #f0f0f0; padding: 20px"
-      >
-        <img src="imagen.jpg" alt="Imagen de ejemplo" max-width="100%" />
+    <header class="container-fluid">
+      <div class="d-flex p-2 border border-2 border-black">
+        <div class="col" style="padding: 10px">
+          <img src="assets/manzana.png" width="50" alt="manzana" />
+        </div>
+        <nav class="navbar bg-body-tertiary" style="display: flex">
+          <div class="container-fluid">
+            <div class="nav-item">
+              <a
+                class="nav-link active mx-3"
+                aria-current="page"
+                href="http://localhost:4200/"
+                >Home</a
+              >
+            </div>
+
+            <div class="nav-item mx-3">
+              <a
+                class="nav-link"
+                href="https://www.entrecolombianasyletras.com/wp-content/uploads/2016/10/ayuda.jpg"
+                >About</a
+              >
+            </div>
+
+            <div class="nav-item mx-3">
+              <a
+                class="nav-link"
+                href="https://www.entrecolombianasyletras.com/wp-content/uploads/2016/10/ayuda.jpg"
+                >Shop</a
+              >
+            </div>
+
+            <div class="nav-item mx-3">
+              <a
+                class="nav-link"
+                href="https://www.entrecolombianasyletras.com/wp-content/uploads/2016/10/ayuda.jpg"
+                >Help</a
+              >
+            </div>
+            <button class="btn btn-secondary">
+              <i class="bi bi-cart"></i>
+              Your Cart
+            </button>
+          </div>
+        </nav>
       </div>
-      <div
-        class="main-content"
-        style="
-          flex-grow: 1;
-          padding: 20px;
-          border-bottom: 2px solid #444;
-          padding-bottom: 10px;
-        "
-      >
-        <div class="row" style="margin-bottom: 20px">
-          <h1 style="margin: 0; font-size: 32px">Título</h1>
+    </header>
+
+    <main class="container-fluid d-flex" id="main">
+      <div class="col-sm-3 border border-2 border-black p-4" id="colIzquierda">
+        <div class="row">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            style="width: 120px; margin-bottom: 8px"
+          >
+            Filter
+          </button>
         </div>
-        <div class="row" style="margin-bottom: 20px">
-          <h2 style="margin: 0; font-size: 20px">1935</h2>
+        <div class="row">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            style="width: 120px; margin-bottom: 8px"
+          >
+            Reset Filter
+          </button>
         </div>
-        <div class="row" style="margin-bottom: 20px">
-          <p style="margin: 0; font-size: 16px">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+        <div class="row" style="margin-bottom: 10px; font-weight: bold">
+          Products
+        </div>
+        <div class="row d-flex border-bottom">
+          <div class="d-flex justify-content-between">
+            <p>Product 1</p>
+            <i class="bi bi-arrow-right-short"></i>
+          </div>
         </div>
       </div>
-    </div>
+      <div class="col-sm-9">
+        <div class="container-fluid border border border-black">
+          <div class="row">
+            <div class="col-5 p-4">
+              <img src="assets/manzano.jpg" width="75%x" alt="manzano" />
+            </div>
+            <div class="col-7 p-4">
+              <h1 class="d-flex">Product title</h1>
+              <div class="d-flex border-bottom">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>
+                <p style="margin-left: 5px">5 reviews</p>
+              </div>
+              <div class="d-flex border-bottom my-3">
+                <h3>$</h3>
+                <h3>1234</h3>
+              </div>
+
+              <div class="d-flex border-bottom">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                vel risus purus. Pellentesque ac est eu libero vestibulum
+                fermentum. Vivamus fermentum turpis quis ligula volutpat, eget
+                aliquet velit molestie. Sed ullamcorper quam in neque lacinia,
+                sed aliquet neque eleifend. Donec quis eros nec velit suscipit
+                laoreet.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid border border-black">
+          <div class="row">
+            <div class="d-flex justify-content-center border-top border-2">
+              <h1>Similar Products</h1>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6 d-flex">
+              <div class="col-md-4">
+                <img src="assets/terranator.jpg" width="100%" alt="manzano" />
+              </div>
+              <div class="col-6">
+                <h2 class="d-flex">Product name</h2>
+                <div class="d-flex">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <p style="margin-left: 5px">5 reviews</p>
+                </div>
+                <div class="d-flex">
+                  <h3>$</h3>
+                  <h3>5678</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 d-flex">
+              <div class="col-md-4">
+                <img src="assets/melocoton.jpg" width="100%" alt="manzano" />
+              </div>
+              <div class="col-6">
+                <h2 class="d-flex">Product name</h2>
+                <div class="d-flex">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star"></i>
+                  <i class="bi bi-star"></i>
+                  <p style="margin-left: 5px">5 reviews</p>
+                </div>
+                <div class="d-flex">
+                  <h3>$</h3>
+                  <h3>1234</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid border border-black">
+          <div class="row mb-5">
+            <div class="d-flex fs-1 fw-semibold texto">Reviews</div>
+          </div>
+          <div class="row mb-5">
+            <div class="col-md-2 px-5">
+              <img src="assets/manzana.png" width="80%" alt="manzana" />
+            </div>
+            <div class="col-md-2">
+              <div class="fs-2">John Doe</div>
+              <div>August 14, 2018</div>
+              <div class="d-flex">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="d-flex fs-4 px-5">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                vel risus purus. Pellentesque ac est eu libero vestibulum
+                fermentum. Vivamus fermentum turpis quis ligula volutpat, eget
+                aliquet velit molestie. Sed ullamcorper quam in neque lacinia,
+                sed aliquet neque eleifend. Donec quis eros nec velit suscipit
+                laoreet.
+              </div>
+            </div>
+          </div>
+          <div class="row py-4">
+            <div class="col-md-2 px-5">
+              <img src="assets/manzana.png" width="80%" alt="manzana" />
+            </div>
+            <div class="col-md-2">
+              <div class="fs-2">John Doe</div>
+              <div>August 14, 2018</div>
+              <div class="d-flex">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="d-flex fs-4 px-5">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                vel risus purus. Pellentesque ac est eu libero vestibulum
+                fermentum. Vivamus fermentum turpis quis ligula volutpat, eget
+                aliquet velit molestie. Sed ullamcorper quam in neque lacinia,
+                sed aliquet neque eleifend. Donec quis eros nec velit suscipit
+                laoreet.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="card-footer border border-black p-5 mx-2"></div>
+    </footer>
   </body>
 </html>

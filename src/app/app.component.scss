@@ -2,6 +2,10 @@
   margin: 30px;
 }
 
+.changebg:hover {
+  background-color: #d3d3d3;
+}
+
 /*con &__img le digo que es el hijo de main-product*/
 .main-product {
   display: grid;
@@ -22,9 +26,9 @@
 
   &__img {
     grid-area: img;
-    width: 75%;
+    width: 100%;
     margin: auto;
-    max-width: 400px;
+    max-width: 600px;
     min-width: 200px;
   }
   &__title {

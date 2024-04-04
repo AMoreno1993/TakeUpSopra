@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { productsData } from './products';
-import { Image, Review } from './interfaces';
+import { Product } from './models/products';
 
 @Component({
   selector: 'app-root',
@@ -9,19 +9,14 @@ import { Image, Review } from './interfaces';
 })
 export class AppComponent {
   listProducts = [...productsData];
-  mainProduct = this.listProducts[0];
-
-  /*  mainProduct: { reviews: Review[]; image: Image } = {
-    reviews: [],
-    image: { src: '' },
-  }; */
+  @Input() mainProduct: Product | null = null;
+  @Output() selectedProduct = new EventEmitter<number>();
 
   expensiveProducts = this.listProducts.filter(
     (product) => product.price > 2000
   );
 
-  productClicked(id: number) {
-    let index = this.listProducts.findIndex((product) => product.id == id);
-    this.mainProduct = this.listProducts[index];
+  productClicked(id: number): void {
+    this.selectedProduct.emit(id);
   }
 }

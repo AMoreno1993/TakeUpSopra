@@ -1,6 +1,11 @@
 <header>
   <div class="d-flex p-2 border border-2 border-black justify-content-between">
-    <img class="mx-5" src="assets/manzana.png" width="50" alt="manzana" />
+    <img
+      class="mx-5"
+      src="https://th.bing.com/th/id/R.ad78975eda8c3ea69dd52884387fe05d?rik=uuhlRNVmagkvFg&pid=ImgRaw&r=0"
+      width="50"
+      alt="manzana"
+    />
 
     <nav class="d-flex flex-wrap align-items-center bg-body-tertiary">
       <div class="nav-item">
@@ -43,30 +48,29 @@
   </div>
 </header>
 
-<main class="d-flex container-fluid p-0">
-  <div class="col-4 col-md-3 border border-black p-3" id="colIzquierda">
-    <button
-      class="btn btn-secondary w-100 mb-3"
-      type="button"
-      style="max-width: 300px"
-    >
-      Filter
-    </button>
+<main class="d-flex">
+  <div class="col-4 col-md-3 border border-black p-3">
+    <div class="row col-3 col-md-6 ms-3">
+      <button
+        class="btn btn-secondary mb-3"
+        (click)="expensiveProducts()"
+        type="button"
+      >
+        Filter
+      </button>
+    </div>
 
-    <br />
+    <div class="row col-3 col-md-6 ms-3">
+      <button
+        class="btn btn-secondary mb-3"
+        (click)="resetFilter()"
+        type="button"
+      >
+        Reset Filter
+      </button>
+    </div>
 
-    <button
-      class="btn btn-secondary w-120 mb-3"
-      type="button"
-      style="max-width: 300px"
-    >
-      Reset Filter
-    </button>
-
-    <div
-      *ngFor="let product of listProducts"
-      (click)="productClicked(product.id)"
-    >
+    <div *ngFor="let product of products" (click)="productClicked(product.id)">
       <div class="card changebg">
         <div class="card-body">
           <div class="d-flex justify-content-between">
@@ -80,11 +84,11 @@
   <div class="col-8 col-md-9">
     <div class="main-product border border-black">
       <div class="p-4 main-product__img">
-        <img [src]="mainProduct?.img" alt="mainImg" class="w-100" />
+        <img [src]="selectedProduct?.img" alt="mainImg" class="w-100" />
       </div>
       <div class="p-4 w-75">
         <h1 class="main-product__title">
-          {{ mainProduct?.product }}
+          {{ selectedProduct?.product }}
         </h1>
         <div class="d-flex main-product__stars border-bottom">
           <i class="bi bi-star-fill"></i>
@@ -95,12 +99,12 @@
           <p style="margin-left: 5px">5 reviews</p>
         </div>
         <div class="d-flex main-product__price border-bottom my-3">
-          <h3>{{ mainProduct?.currency }}</h3>
-          <h3>{{ mainProduct?.price }}</h3>
+          <h3>{{ selectedProduct?.currency }}</h3>
+          <h3>{{ selectedProduct?.price }}</h3>
         </div>
 
         <div class="main-product__description">
-          {{ mainProduct?.description }}
+          {{ selectedProduct?.description }}
         </div>
         <div></div>
       </div>
@@ -113,15 +117,14 @@
 
       <div class="d-flex flex-wrap justify-content-around pb-5 m-5">
         <div
-          *ngFor="let similarProduct of mainProduct?.similarProducts"
-          class="col-6 col-md-3"
+          *ngFor="let similarProduct of selectedProduct?.similarProducts"
+          class="col-12 col-md-3"
         >
-          //MODIFICAR EL SRC CON UNA INTERFAZ
-          <div class="card">
+          <div style="min-width: 250px">
             <div class="d-flex">
               <img
-                class="card-img"
-                [src]="similarProduct.currency"
+                class="card-img w-50"
+                [src]="similarProduct.img"
                 alt="tomacco"
               />
               <div class="m-3">
@@ -140,17 +143,19 @@
         </div>
       </div>
     </div>
-    <div class="d-flex border flex-wrap border-black">
-      <div class="d-flex fs-1 fw-semibold texto">Reviews</div>
-      <div *ngFor="let reviews of mainProduct?.reviews">
+    <div class="border border-black">
+      <div class="d-flex fs-1 justify-content-center fw-semibold texto m-5">
+        Reviews
+      </div>
+      <div *ngFor="let review of selectedProduct?.reviews">
         <div class="card">
           <div class="d-flex flex-wrap mb-5">
             <div class="px-5">
-              <img [src]="reviews.image" width="120px" alt="manzana" />
+              <img [src]="review.img" width="120px" alt="manzana" />
             </div>
             <div class="mx-5 my-3">
-              <div class="fs-1">{{ reviews.name }}</div>
-              <div>{{ reviews.date }}</div>
+              <div class="fs-1">{{ review.name }}</div>
+              <div>{{ review.date }}</div>
               <div>
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
@@ -161,7 +166,7 @@
             </div>
             <div class="col-12 col-md-7">
               <div class="fs-4 px-5">
-                {{ reviews.opinion }}
+                {{ review.opinion }}
               </div>
             </div>
           </div>

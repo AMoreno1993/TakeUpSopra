@@ -1,5 +1,5 @@
 export interface Review {
-  image: string;
+  img: string;
   name: string;
   rating: number;
   opinion: string;

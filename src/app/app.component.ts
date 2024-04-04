@@ -8,15 +8,28 @@ import { Product } from './models/products';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  listProducts = [...productsData];
-  @Input() mainProduct: Product | null = null;
-  @Output() selectedProduct = new EventEmitter<number>();
+  originalProducts = [...productsData];
+  products = [...productsData];
+  selectedProduct: Product | null = null;
 
-  expensiveProducts = this.listProducts.filter(
-    (product) => product.price > 2000
-  );
+  ngOnInit(): void {
+    this.selectedProduct = this.products[0];
+  }
 
   productClicked(id: number): void {
-    this.selectedProduct.emit(id);
+    const product = this.products.find((product) => product.id === id);
+    if (product != null) {
+      this.selectedProduct = product ?? null;
+    }
+  }
+
+  expensiveProducts(): void {
+    this.resetFilter();
+    this.products = this.originalProducts.filter(
+      (product) => product.price > 2000
+    );
+  }
+  resetFilter(): void {
+    this.products = this.originalProducts;
   }
 }

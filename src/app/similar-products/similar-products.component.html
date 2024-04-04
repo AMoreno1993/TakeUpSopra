@@ -1,1 +1,29 @@
-<p>similar-products works!</p>
+<div class="border border-black pb-4">
+  <div class="d-flex justify-content-center p-5 mb-4">
+    <h1>Similar Products</h1>
+  </div>
+
+  <div class="d-flex flex-wrap justify-content-around pb-5 m-5">
+    <div
+      *ngFor="let similarProduct of selectedProduct?.similarProducts"
+      class="col-12 col-md-3"
+    >
+      <div style="min-width: 250px">
+        <div class="d-flex">
+          <img class="card-img w-50" [src]="similarProduct.img" alt="tomacco" />
+          <div class="m-3">
+            <h2>{{ similarProduct.product }}</h2>
+            <div class="d-flex flex-wrap">
+              ★★★★★
+              <p style="margin-left: 5px">5 reviews</p>
+            </div>
+            <div class="d-flex">
+              <h3>{{ similarProduct.currency }}</h3>
+              <h3>{{ similarProduct.price }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

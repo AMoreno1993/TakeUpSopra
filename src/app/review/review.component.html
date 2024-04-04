@@ -1,1 +1,30 @@
-<p>review works!</p>
+<div class="border border-black">
+  <div class="d-flex fs-1 justify-content-center fw-semibold texto m-5">
+    Reviews
+  </div>
+  <div *ngFor="let review of selectedProduct?.reviews">
+    <div class="card">
+      <div class="d-flex flex-wrap mb-5">
+        <div class="px-5">
+          <img [src]="review.img" width="120px" alt="manzana" />
+        </div>
+        <div class="mx-5 my-3">
+          <div class="fs-1">{{ review.name }}</div>
+          <div>{{ review.date }}</div>
+          <div>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star"></i>
+            <i class="bi bi-star"></i>
+          </div>
+        </div>
+        <div class="col-12 col-md-7">
+          <div class="fs-4 px-5">
+            {{ review.opinion }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -18,13 +18,14 @@
   </button>
 </div>
 
-<div *ngFor="let product of products" (click)="productClicked(product.id)">
-  <div class="card changebg">
-    <div class="card-body">
-      <div class="d-flex clickable justify-content-between">
-        <p class="fs-2">{{ product.product }}</p>
-        <i class="bi bi-arrow-right-short"></i>
-      </div>
+<div *ngFor="let product of products">
+  <div class="card card-body changebg">
+    <div
+      class="d-flex clickable justify-content-between"
+      (click)="productClicked(product.id)"
+    >
+      <p class="fs-2">{{ product.product }}</p>
+      <i class="bi bi-arrow-right-short"></i>
     </div>
   </div>
 </div>

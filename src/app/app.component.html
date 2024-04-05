@@ -7,6 +7,7 @@
         [products]="products"
         (clickedReset)="resetFilter()"
         (filterExpensive)="expensiveProducts()"
+        (onSelectedProduct)="productClicked($event)"
       ></app-side-bar>
     </div>
 
@@ -15,8 +16,10 @@
       <app-similar-products></app-similar-products>
     </div>
   </div>
+  <div class="border border-black">
+    <app-review></app-review>
+  </div>
 
-  <app-review></app-review>
   <footer class="col">
     <div class="card-footer border border-black p-5"></div>
   </footer>

@@ -31,7 +31,7 @@ export const productsData = [
       },
       {
         id: 2,
-        product: 'Tegridad',
+        product: 'Berengena',
         price: 2500,
         currency: '€',
         rating: 5,
@@ -82,7 +82,7 @@ export const productsData = [
       },
       {
         id: 2,
-        product: 'Tegridad',
+        product: 'Berengena',
         price: 2500,
         currency: '€',
         rating: 5,

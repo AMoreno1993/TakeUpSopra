@@ -10,8 +10,9 @@ import { Product } from './models/products';
 export class AppComponent {
   originalProducts: Product[] = [...productsData];
   products: Product[] = [...productsData];
-  selectedProduct: Product | null = null;
+  selectedProduct!: Product;
   productPosition = 0;
+  priceProduct = 2000;
 
   ngOnInit(): void {
     this.selectedProduct = this.products[this.productPosition];
@@ -27,7 +28,7 @@ export class AppComponent {
   expensiveProducts(): void {
     this.resetFilter();
     this.products = this.originalProducts.filter(
-      (product) => product.price > 2000
+      (product) => product.price > this.priceProduct
     );
   }
   resetFilter(): void {

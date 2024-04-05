@@ -1,10 +1,10 @@
 <div class="main-product border border-black">
   <div class="p-4 main-product__img">
-    <img [src]="selectedProduct?.img" alt="mainImg" class="w-100" />
+    <img [src]="selectedProduct.img" alt="mainImg" class="w-100" />
   </div>
   <div class="p-4 w-75">
     <h1 class="main-product__title">
-      {{ selectedProduct?.product }}
+      {{ selectedProduct.product }}
     </h1>
     <div class="d-flex main-product__stars border-bottom">
       <i class="bi bi-star-fill"></i>
@@ -15,12 +15,12 @@
       <p style="margin-left: 5px">5 reviews</p>
     </div>
     <div class="d-flex main-product__price border-bottom my-3">
-      <h3>{{ selectedProduct?.currency }}</h3>
-      <h3>{{ selectedProduct?.price }}</h3>
+      <h3>{{ selectedProduct.currency }}</h3>
+      <h3>{{ selectedProduct.price }}</h3>
     </div>
 
     <div class="main-product__description">
-      {{ selectedProduct?.description }}
+      {{ selectedProduct.description }}
     </div>
     <div></div>
   </div>

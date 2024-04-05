@@ -1,31 +1,29 @@
-<div class="col-4 col-md-3 border border-black p-3">
-  <div class="row col-3 col-md-6 ms-3">
-    <button
-      class="btn btn-secondary mb-3"
-      (click)="expensiveProducts()"
-      type="button"
-    >
-      Filter
-    </button>
-  </div>
+<div class="row col-3 col-md-6 ms-3">
+  <button
+    class="btn btn-secondary mb-3"
+    (click)="expensiveProducts()"
+    type="button"
+  >
+    Filter
+  </button>
+</div>
 
-  <div class="row col-3 col-md-6 ms-3">
-    <button
-      class="btn btn-secondary mb-3"
-      (click)="resetFilter()"
-      type="button"
-    >
-      Reset Filter
-    </button>
-  </div>
+<div class="row col-3 col-md-6 ms-3">
+  <button
+    class="btn btn-secondary mb-3"
+    (click)="resetProducts()"
+    type="button"
+  >
+    Reset Filter
+  </button>
+</div>
 
-  <div *ngFor="let product of products" (click)="productClicked(product.id)">
-    <div class="card changebg">
-      <div class="card-body">
-        <div class="d-flex justify-content-between">
-          <p class="fs-2">{{ product.product }}</p>
-          <i class="bi bi-arrow-right-short"></i>
-        </div>
+<div *ngFor="let product of products" (click)="productClicked(product.id)">
+  <div class="card changebg">
+    <div class="card-body">
+      <div class="d-flex clickable justify-content-between">
+        <p class="fs-2">{{ product.product }}</p>
+        <i class="bi bi-arrow-right-short"></i>
       </div>
     </div>
   </div>

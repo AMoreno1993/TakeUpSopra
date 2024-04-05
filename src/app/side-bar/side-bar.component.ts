@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { productsData } from '../products';
 import { Product } from '../models/products';
 
@@ -8,28 +8,22 @@ import { Product } from '../models/products';
   styleUrls: ['./side-bar.component.scss'],
 })
 export class SideBarComponent {
-  originalProducts = [...productsData];
-  products = [...productsData];
-  selectedProduct: Product | null = null;
+  @Input() products!: Product[];
+  @Input() selectedProduct: Product | null = null;
 
-  ngOnInit(): void {
-    this.selectedProduct = this.products[0];
-  }
+  @Output() onSelectedProduct: EventEmitter<number> = new EventEmitter();
+  @Output() clickedReset: EventEmitter<void> = new EventEmitter();
+  @Output() filterExpensive: EventEmitter<void> = new EventEmitter();
 
   productClicked(id: number): void {
-    const product = this.products.find((product) => product.id === id);
-    if (product != null) {
-      this.selectedProduct = product ?? null;
-    }
+    this.onSelectedProduct.emit(id);
+  }
+
+  resetProducts(): void {
+    this.clickedReset.emit();
   }
 
   expensiveProducts(): void {
-    this.resetFilter();
-    this.products = this.originalProducts.filter(
-      (product) => product.price > 2000
-    );
-  }
-  resetFilter(): void {
-    this.products = this.originalProducts;
+    this.filterExpensive.emit();
   }
 }

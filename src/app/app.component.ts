@@ -8,12 +8,13 @@ import { Product } from './models/products';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  originalProducts = [...productsData];
-  products = [...productsData];
+  originalProducts: Product[] = [...productsData];
+  products: Product[] = [...productsData];
   selectedProduct: Product | null = null;
+  productPosition = 0;
 
   ngOnInit(): void {
-    this.selectedProduct = this.products[0];
+    this.selectedProduct = this.products[this.productPosition];
   }
 
   productClicked(id: number): void {

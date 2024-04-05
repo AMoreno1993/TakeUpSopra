@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Product } from '../models/products';
-import { productsData } from '../products';
 
 @Component({
   selector: 'app-product-main',
@@ -8,11 +7,5 @@ import { productsData } from '../products';
   styleUrls: ['./product-main.component.scss'],
 })
 export class ProductMainComponent {
-  originalProducts = [...productsData];
-  products = [...productsData];
-  selectedProduct: Product | null = null;
-
-  ngOnInit(): void {
-    this.selectedProduct = this.products[0];
-  }
+  @Input() selectedProduct: Product | null = null;
 }

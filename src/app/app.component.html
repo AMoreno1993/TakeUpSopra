@@ -1,6 +1,22 @@
 <div class="container">
   <app-nav-bar></app-nav-bar>
-  <app-root></app-root>
+
+  <div class="d-flex">
+    <div class="col-4 col-md-3 border border-black p-3">
+      <app-side-bar
+        [products]="products"
+        (clickedReset)="resetFilter()"
+        (filterExpensive)="expensiveProducts()"
+      ></app-side-bar>
+    </div>
+
+    <div class="col-8 col-md-9">
+      <app-product-main [selectedProduct]="selectedProduct"></app-product-main>
+      <app-similar-products></app-similar-products>
+    </div>
+  </div>
+
+  <app-review></app-review>
   <footer class="col">
     <div class="card-footer border border-black p-5"></div>
   </footer>

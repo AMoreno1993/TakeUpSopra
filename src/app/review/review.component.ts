@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Product } from '../models/products';
 import { productsData } from '../products';
 
@@ -8,11 +8,5 @@ import { productsData } from '../products';
   styleUrls: ['./review.component.scss'],
 })
 export class ReviewComponent {
-  originalProducts = [...productsData];
-  products = [...productsData];
-  selectedProduct: Product | null = null;
-
-  ngOnInit(): void {
-    this.selectedProduct = this.products[0];
-  }
+  @Input() selectedProduct!: Product;
 }

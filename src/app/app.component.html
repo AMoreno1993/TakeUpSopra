@@ -5,6 +5,7 @@
     <div class="col-4 col-md-3 border border-black p-3">
       <app-side-bar
         [products]="products"
+        [selectedProduct]="selectedProduct"
         (clickedReset)="resetFilter()"
         (filterExpensive)="expensiveProducts()"
         (onSelectedProduct)="productClicked($event)"
@@ -13,11 +14,13 @@
 
     <div class="col-8 col-md-9">
       <app-product-main [selectedProduct]="selectedProduct"></app-product-main>
-      <app-similar-products></app-similar-products>
+      <app-similar-products
+        [selectedProduct]="selectedProduct"
+      ></app-similar-products>
     </div>
   </div>
   <div class="border border-black">
-    <app-review></app-review>
+    <app-review [selectedProduct]="selectedProduct"></app-review>
   </div>
 
   <footer class="col">

@@ -9,7 +9,7 @@ import { Product } from '../models/products';
 })
 export class SideBarComponent {
   @Input() products!: Product[];
-  @Input() selectedProduct: Product | null = null;
+  @Input() selectedProduct!: Product;
 
   @Output() onSelectedProduct: EventEmitter<number> = new EventEmitter();
   @Output() clickedReset: EventEmitter<void> = new EventEmitter();

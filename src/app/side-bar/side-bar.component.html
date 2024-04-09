@@ -19,7 +19,10 @@
 </div>
 
 <div *ngFor="let product of products">
-  <div class="card card-body changebg">
+  <div
+    class="card card-body changebg"
+    [ngClass]="{ 'selected-background': selectedProduct.id === product.id }"
+  >
     <div
       class="d-flex clickable justify-content-between"
       (click)="productClicked(product.id)"

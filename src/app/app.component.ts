@@ -21,7 +21,7 @@ export class AppComponent {
   productClicked(id: number): void {
     const product = this.products.find((product) => product.id === id);
     if (product != null) {
-      this.selectedProduct = product ?? null;
+      this.selectedProduct = product;
     }
   }
 

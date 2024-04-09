@@ -7,12 +7,7 @@
       {{ selectedProduct.product }}
     </h1>
     <div class="d-flex main-product__stars border-bottom">
-      <i class="bi bi-star-fill"></i>
-      <i class="bi bi-star-fill"></i>
-      <i class="bi bi-star-fill"></i>
-      <i class="bi bi-star"></i>
-      <i class="bi bi-star"></i>
-      <p style="margin-left: 5px">5 reviews</p>
+      <app-rating [rating]="selectedProduct.rating"></app-rating>
     </div>
     <div class="d-flex main-product__price border-bottom my-3">
       <h3>{{ selectedProduct.currency }}</h3>

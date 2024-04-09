@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { productsData } from '../products';
-import { Product } from '../models/products';
+import { productsData } from '../../../products';
+import { Product } from '../../../models/products';
 
 @Component({
   selector: 'app-side-bar',

@@ -1,0 +1,21 @@
+<div class="d-flex">
+  <div class="col-4 col-md-3 border border-black p-3">
+    <app-side-bar
+      [products]="products"
+      [selectedProduct]="selectedProduct"
+      (clickedReset)="resetFilter()"
+      (filterExpensive)="expensiveProducts()"
+      (onSelectedProduct)="productClicked($event)"
+    ></app-side-bar>
+  </div>
+
+  <div class="col-8 col-md-9">
+    <app-product-main [selectedProduct]="selectedProduct"></app-product-main>
+    <app-similar-products
+      [selectedProduct]="selectedProduct"
+    ></app-similar-products>
+  </div>
+</div>
+<div class="border border-black">
+  <app-review [selectedProduct]="selectedProduct"></app-review>
+</div>

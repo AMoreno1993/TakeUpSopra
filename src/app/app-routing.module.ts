@@ -1,13 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, type Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { RatingComponent } from './rating/rating.component';
-import { ReviewComponent } from './review/review.component';
-import { SideBarComponent } from './side-bar/side-bar.component';
-import { SimilarProductsComponent } from './similar-products/similar-products.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('./home-page/home-page.module').then((m) => m.HomePageModule),
+  },
+  {
+    path: 'aboutUs',
+    loadChildren: () =>
+      import('./aboutus-page/aboutus-page.module').then(
+        (m) => m.AboutusPageModule
+      ),
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

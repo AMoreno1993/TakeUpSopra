@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Product } from '../models/products';
-import { productsData } from '../products';
+import { Product } from '../../../models/products';
+import { productsData } from '../../../products';
 
 @Component({
   selector: 'app-similar-products',

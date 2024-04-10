@@ -6,7 +6,7 @@ import { ReviewComponent } from './components/review/review.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { SimilarProductsComponent } from './components/similar-products/similar-products.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './home.component';
 
 @NgModule({
   declarations: [

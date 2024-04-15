@@ -43,7 +43,7 @@
         "name": "Homer Simpson",
         "rating": 5,
         "opinion": "La palabra correcta es nu-ce-lar.",
-        "date": "Ayer por la tarde, 2023"
+        "date": "20-01-2022 17:03"
       },
       {
         "id": 2,
@@ -51,7 +51,7 @@
         "name": "Marge Simpson",
         "rating": 4,
         "opinion": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque.",
-        "date": "La semana pasada, 2023"
+        "date": "10-02-2023 12:30"
       }
     ]
   },
@@ -99,7 +99,7 @@
         "name": "P. Escobar",
         "rating": 5,
         "opinion": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
-        "date": "Ayer por la tarde, 2023"
+        "date": "12-03-2023 13:00"
       },
       {
         "id": 2,
@@ -107,7 +107,7 @@
         "name": "M.A. Nestle",
         "rating": 2,
         "opinion": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque.",
-        "date": "La semana pasada, 2023"
+        "date": "15-03-2024 12:00"
       }
     ]
   },
@@ -146,7 +146,7 @@
         "name": "Stan Marsh",
         "rating": 1,
         "opinion": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
-        "date": "Ayer por la tarde, 2023"
+        "date": "03-07-2024 16:30"
       },
       {
         "id": 2,
@@ -154,7 +154,7 @@
         "name": "Randy Marsh",
         "rating": 5,
         "opinion": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque.",
-        "date": "primer día, 2023"
+        "date": "05-12-2021 16:00"
       }
     ]
   },

@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Product } from 'src/app/models/products';
 import { ProductService } from '../services/product.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-home',
@@ -10,11 +11,15 @@ import { ProductService } from '../services/product.service';
 export class HomeComponent {
   originalProducts: Product[] = [];
   products: Product[] = [];
+  cartProductList: Product[] = [];
   productPosition = 0;
   selectedProduct!: Product;
   priceProduct = 2000;
 
-  constructor(private _productService: ProductService) {}
+  constructor(
+    private _productService: ProductService,
+    private _cartService: CartService
+  ) {}
 
   ngOnInit(): void {
     this.getProductData();
@@ -34,8 +39,12 @@ export class HomeComponent {
     this.products = this.originalProducts;
   }
 
+  addToCart(): void {
+    this._cartService.addToCart(this.selectedProduct);
+  }
+
   private getProductData() {
-    this._productService.getProducts().subscribe((productList) => {
+    this._productService.products$.subscribe((productList) => {
       this.initializeProducts(productList);
     });
   }

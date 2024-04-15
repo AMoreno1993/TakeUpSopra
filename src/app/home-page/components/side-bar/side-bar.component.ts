@@ -12,7 +12,7 @@ export class SideBarComponent {
 
   @Output() onSelectedProduct: EventEmitter<Product> = new EventEmitter();
   @Output() clickedReset: EventEmitter<void> = new EventEmitter();
-  @Output() filterExpensive: EventEmitter<void> = new EventEmitter();
+  @Output() filterExpensiveProducts: EventEmitter<void> = new EventEmitter();
 
   selectProduct(product: Product): void {
     this.onSelectedProduct.emit(product);
@@ -23,6 +23,6 @@ export class SideBarComponent {
   }
 
   expensiveProducts(): void {
-    this.filterExpensive.emit();
+    this.filterExpensiveProducts.emit();
   }
 }

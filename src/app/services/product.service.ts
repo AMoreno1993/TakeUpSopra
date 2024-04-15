@@ -1,22 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/products';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
   private url = 'assets/productsJson.json';
-  /* private _products: Observable<Product[]> = this.getProducts(); */
+  private readonly products: BehaviorSubject<Product[]> = new BehaviorSubject<
+    Product[]
+  >([]);
+  private _products: Product[] = [];
+  public products$: Observable<Product[]> = this.products.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.getProducts();
+  }
 
-  /* get products() {
-    return this._products;
-  } */
-
-  getProducts() {
-    return this.http.get<Product[]>(this.url);
+  private getProducts(): void {
+    this.http.get<Product[]>(this.url).subscribe({
+      next: (products: Product[]) => {
+        this._products = products;
+        this.products.next(this._products);
+      },
+      error: (error) => 'Error al obtener la lista de productos' + error,
+    });
   }
 }

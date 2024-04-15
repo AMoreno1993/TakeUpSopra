@@ -4,13 +4,16 @@
       [products]="products"
       [selectedProduct]="selectedProduct"
       (clickedReset)="resetFilter()"
-      (filterExpensive)="filterExpensiveProducts()"
+      (filterExpensiveProducts)="filterExpensiveProducts()"
       (onSelectedProduct)="selectProduct($event)"
     ></app-side-bar>
   </div>
 
   <div class="col-8 col-md-9">
-    <app-product-main [selectedProduct]="selectedProduct"></app-product-main>
+    <app-product-main
+      [selectedProduct]="selectedProduct"
+      (addToCart)="addToCart()"
+    ></app-product-main>
     <app-similar-products
       [selectedProduct]="selectedProduct"
     ></app-similar-products>

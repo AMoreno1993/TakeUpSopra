@@ -20,6 +20,11 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'cart',
+    loadChildren: () =>
+      import('./home-page/cart/cart.module').then((m) => m.CartModule),
+  },
+  {
     path: '**',
     redirectTo: 'home',
     pathMatch: 'full',

@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { productsData } from '../../../products';
 import { Product } from '../../../models/products';
 
 @Component({
@@ -11,12 +10,12 @@ export class SideBarComponent {
   @Input() products!: Product[];
   @Input() selectedProduct!: Product;
 
-  @Output() onSelectedProduct: EventEmitter<number> = new EventEmitter();
+  @Output() onSelectedProduct: EventEmitter<Product> = new EventEmitter();
   @Output() clickedReset: EventEmitter<void> = new EventEmitter();
   @Output() filterExpensive: EventEmitter<void> = new EventEmitter();
 
-  productClicked(id: number): void {
-    this.onSelectedProduct.emit(id);
+  selectProduct(product: Product): void {
+    this.onSelectedProduct.emit(product);
   }
 
   resetProducts(): void {

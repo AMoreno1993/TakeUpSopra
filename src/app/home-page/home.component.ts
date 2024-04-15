@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Product } from 'src/app/models/products';
-import { productsData } from 'src/app/products';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-home',
@@ -8,24 +8,23 @@ import { productsData } from 'src/app/products';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  originalProducts: Product[] = [...productsData];
-  products: Product[] = [...productsData];
-  selectedProduct!: Product;
+  originalProducts: Product[] = [];
+  products: Product[] = [];
   productPosition = 0;
+  selectedProduct!: Product;
   priceProduct = 2000;
 
+  constructor(private _productService: ProductService) {}
+
   ngOnInit(): void {
-    this.selectedProduct = this.products[this.productPosition];
+    this.getProductData();
   }
 
-  productClicked(id: number): void {
-    const product = this.products.find((product) => product.id === id);
-    if (product != null) {
-      this.selectedProduct = product;
-    }
+  selectProduct(product: Product): void {
+    this.selectedProduct = product;
   }
 
-  expensiveProducts(): void {
+  filterExpensiveProducts(): void {
     this.resetFilter();
     this.products = this.originalProducts.filter(
       (product) => product.price > this.priceProduct
@@ -33,5 +32,17 @@ export class HomeComponent {
   }
   resetFilter(): void {
     this.products = this.originalProducts;
+  }
+
+  private getProductData() {
+    this._productService.getProducts().subscribe((productList) => {
+      this.initializeProducts(productList);
+    });
+  }
+
+  private initializeProducts(productList: Product[]) {
+    this.products = productList;
+    this.originalProducts = productList;
+    this.selectedProduct = this.products[this.productPosition];
   }
 }

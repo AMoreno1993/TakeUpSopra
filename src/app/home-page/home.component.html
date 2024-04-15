@@ -4,8 +4,8 @@
       [products]="products"
       [selectedProduct]="selectedProduct"
       (clickedReset)="resetFilter()"
-      (filterExpensive)="expensiveProducts()"
-      (onSelectedProduct)="productClicked($event)"
+      (filterExpensive)="filterExpensiveProducts()"
+      (onSelectedProduct)="selectProduct($event)"
     ></app-side-bar>
   </div>
 

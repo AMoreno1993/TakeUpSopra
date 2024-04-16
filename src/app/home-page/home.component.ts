@@ -45,11 +45,12 @@ export class HomeComponent {
 
   private getProductData() {
     this._productService.products$.subscribe((productList) => {
+      console.log(productList);
       this.initializeProducts(productList);
     });
   }
 
-  private initializeProducts(productList: Product[]) {
+  private initializeProducts(productList: Product[] = []) {
     this.products = productList;
     this.originalProducts = productList;
     this.selectedProduct = this.products[this.productPosition];

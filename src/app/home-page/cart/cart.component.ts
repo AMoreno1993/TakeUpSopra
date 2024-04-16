@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../models/products';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,5 +8,24 @@ import { Product } from '../../models/products';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent {
-  @Input() cartProductList!: Product[];
+  cartProductList: Product[] = [];
+
+  constructor(private cartService: CartService) {}
+
+  ngOnInit(): void {
+    this.getCart();
+  }
+  private getCart() {
+    this.cartService.cartProducts$.subscribe((cartProductList) => {
+      console.log(cartProductList);
+      this.initializeProducts(cartProductList);
+    });
+  }
+  deleteFromCartList(position: number) {
+    this.cartService.deleteFromCart(position);
+  }
+
+  private initializeProducts(productList: Product[]) {
+    this.cartProductList = productList;
+  }
 }

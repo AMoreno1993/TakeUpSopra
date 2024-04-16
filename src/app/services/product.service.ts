@@ -14,11 +14,9 @@ export class ProductService {
   private _products: Product[] = [];
   public products$: Observable<Product[]> = this.products.asObservable();
 
-  constructor(private http: HttpClient) {
-    this.getProducts();
-  }
+  constructor(private http: HttpClient) {}
 
-  private getProducts(): void {
+  getProducts(): void {
     this.http.get<Product[]>(this.url).subscribe({
       next: (products: Product[]) => {
         this._products = products;

@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  numberAttribute,
+} from '@angular/core';
 import { CartProduct } from 'src/app/models/cartProducts';
 
 @Component({
@@ -12,5 +18,17 @@ export class ProductListComponent {
 
   deleteFromCartList(position: number) {
     this.deleteFromCart.emit(position);
+  }
+
+  incrementQuantity(cartProduct: CartProduct): void {
+    cartProduct.quantity += 1;
+  }
+
+  decrementQuantity(cartProduct: CartProduct, position: number): void {
+    if (cartProduct.quantity == 1) {
+      this.deleteFromCartList(position);
+    } else {
+      cartProduct.quantity -= 1;
+    }
   }
 }

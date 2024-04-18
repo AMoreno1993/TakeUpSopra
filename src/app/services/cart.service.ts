@@ -32,21 +32,29 @@ export class CartService {
   }
 
   private incrementNumProduct(product: Product): void {
-    let cartProduct = this._cartProductList.find(
-      (cartproduct) => cartproduct.product.id === product.id
-    );
-    if (cartProduct) {
+    let cartProduct;
+    if ((cartProduct = this.findProductOnCard(product))) {
       cartProduct.quantity += 1;
     } else {
       this._cartProductList.push({ product, quantity: 1 });
     }
   }
 
+  private findProductOnCard(product: Product): CartProduct {
+    let cartProduct = this._cartProductList.find(
+      (cartproduct) => cartproduct.product.id === product.id
+    );
+    product.onCart = true;
+    return cartProduct!;
+  }
+
   public deleteFromCart(index: number): void {
     if (index !== -1) {
       this._cartProductList.splice(index, 1);
+      this._cartProductList[index].product.onCart = false;
       this.cartProducts.next(this._cartProductList);
     }
+
     this.updateSessionStorage();
   }
 

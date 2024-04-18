@@ -10,4 +10,5 @@ export interface Product {
   description: string;
   similarProducts?: Product[];
   reviews?: Review[] | null;
+  onCart?: boolean | null;
 }

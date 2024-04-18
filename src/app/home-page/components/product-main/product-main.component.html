@@ -1,4 +1,7 @@
-<div class="main-product border border-black">
+<div
+  class="main-product border border-black"
+  [ngClass]="{ 'product-added': selectedProduct.onCart }"
+>
   <div class="p-4 img-fluid">
     <img [src]="selectedProduct.img" alt="mainImg" class="size" />
   </div>

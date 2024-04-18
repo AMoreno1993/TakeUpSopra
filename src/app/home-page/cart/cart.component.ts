@@ -25,6 +25,10 @@ export class CartComponent {
     this.cartService.deleteFromCart(position);
   }
 
+  addQuantity(product: Product) {
+    this.cartService.addToCart(product);
+  }
+
   private initializeProducts(productList: CartProduct[]) {
     this.cartProductList = productList;
   }

@@ -1,20 +1,26 @@
 <div *ngIf="cartProductList.length; else elseBlock" class="text-center">
   <div
-    *ngFor="let product of cartProductList; let position = index"
+    *ngFor="let cartProduct of cartProductList; let position = index"
     class="col-12"
   >
     <div class="d-flex my-3 border-bottom">
-      <img [src]="product.img" class="d-flex mx-2 col-3" alt="productImage" />
+      <img
+        [src]="cartProduct.product.img"
+        class="d-flex mx-2 col-3"
+        alt="productImage"
+      />
       <div class="col-3">
-        <h2>{{ product.product }}</h2>
+        <h2>{{ cartProduct.product.product }}</h2>
         <div class="d-flex justify-content-center">
-          <div class="ms-2">{{ product.price }}</div>
-          <div>{{ product.currency }}</div>
+          <div class="ms-2">{{ cartProduct.product.price }}</div>
+          <div>{{ cartProduct.product.currency }}</div>
         </div>
       </div>
       <div class="d-flex align-items-center my-3">
         <button class="btn btn-danger">-</button>
-        <div class="fs-2 border border-black m-5 p-2">1</div>
+        <div class="fs-2 border border-black m-5 p-2">
+          {{ cartProduct.quantity }}
+        </div>
         <button class="btn btn-success">+</button>
       </div>
       <button (click)="deleteFromCartList(position)">DELETE</button>

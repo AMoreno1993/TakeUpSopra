@@ -17,7 +17,6 @@ export class HeaderInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log('paso por el interceptor');
     const userToken = 'Pedro';
 
     const clonedRequest = request.clone({

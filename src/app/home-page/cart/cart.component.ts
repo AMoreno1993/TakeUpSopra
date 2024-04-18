@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../models/products';
 import { CartService } from 'src/app/services/cart.service';
+import { CartProduct } from 'src/app/models/cartProducts';
 
 @Component({
   selector: 'app-cart',
@@ -8,7 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent {
-  cartProductList: Product[] = [];
+  cartProductList: CartProduct[] = [];
 
   constructor(private cartService: CartService) {}
 
@@ -17,7 +18,6 @@ export class CartComponent {
   }
   private getCart() {
     this.cartService.cartProducts$.subscribe((cartProductList) => {
-      console.log(cartProductList);
       this.initializeProducts(cartProductList);
     });
   }
@@ -25,7 +25,7 @@ export class CartComponent {
     this.cartService.deleteFromCart(position);
   }
 
-  private initializeProducts(productList: Product[]) {
+  private initializeProducts(productList: CartProduct[]) {
     this.cartProductList = productList;
   }
 }

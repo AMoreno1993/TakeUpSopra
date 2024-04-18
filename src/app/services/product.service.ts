@@ -16,7 +16,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  getProducts(): void {
+  initializeProducts(): void {
     this.http.get<Product[]>(this.url).subscribe({
       next: (products: Product[]) => {
         this._products = products;

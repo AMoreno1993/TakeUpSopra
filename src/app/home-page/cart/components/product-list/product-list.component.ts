@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Product } from 'src/app/models/products';
+import { CartProduct } from 'src/app/models/cartProducts';
 
 @Component({
   selector: 'app-product-list',
@@ -7,7 +7,7 @@ import { Product } from 'src/app/models/products';
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent {
-  @Input() cartProductList: Product[] = [];
+  @Input() cartProductList: CartProduct[] = [];
   @Output() deleteFromCart: EventEmitter<number> = new EventEmitter();
 
   deleteFromCartList(position: number) {

@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center my-5">
+  <div>
+    <h1>Product Info</h1>
+    <div class="d-flex bg-body-tertiary mt-5">
+      <form
+        class="mt-5"
+        (ngSubmit)="sendProductInfo()"
+        [formGroup]="productForm"
+        autocomplete="off"
+      >
+        <div class="form-group my-3">
+          <label for="productName">Product Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="productName"
+            placeholder="Name of the product"
+            name="name"
+            formControlName="product"
+          />
+        </div>
+        <small
+          *ngIf="validateField('product')"
+          id="nameError"
+          class="form-text text-danger"
+          >El campo no puede estar vacío
+        </small>
+        <div class="form-group my-3">
+          <label for="productPrice">Price</label>
+          <input
+            type="number"
+            class="form-control"
+            id="productPrice"
+            name="price"
+            formControlName="price"
+          />
+        </div>
+        <small
+          *ngIf="validateField('price')"
+          id="priceError"
+          class="form-text text-danger"
+          >El campo no puede estar vacío
+        </small>
+
+        <div class="form-group my-3">
+          <label for="productDescription">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            id="productDescription"
+            placeholder="Description of the product"
+            formControlName="description"
+            name="description"
+          />
+        </div>
+        <small
+          *ngIf="validateField('description')"
+          id="nameError"
+          class="form-text text-danger"
+          >El campo no puede estar vacío<br />
+          Debe tener menos de 350 caracteres <br />
+          No admite caracteres especiales
+        </small>
+        <br />
+        <div class="d-flex justify-content-center">
+          <button
+            type="submit"
+            [disabled]="productForm.invalid"
+            class="btn btn-primary my-2"
+          >
+            SAVE
+          </button>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col-6 offset-3">
+          <p *ngIf="formValue">{{ formValue | json }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

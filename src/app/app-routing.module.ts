@@ -20,9 +20,18 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'success',
+    loadChildren: () =>
+      import('./success/success.module').then((m) => m.SuccessModule),
+  },
+  {
     path: 'cart',
     loadChildren: () =>
       import('./home-page/cart/cart.module').then((m) => m.CartModule),
+  },
+  {
+    path: 'form',
+    loadChildren: () => import('./form/form.module').then((m) => m.FormModule),
   },
   {
     path: '**',

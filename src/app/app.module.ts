@@ -7,9 +7,11 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HeaderInterceptor } from './interceptors/header.interceptor';
+import { FormComponent } from './form/components/form.component';
+import { SucessComponent } from './success/components/sucess.component';
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent],
+  declarations: [AppComponent, NavBarComponent, SucessComponent],
   imports: [
     CommonModule,
     BrowserModule,

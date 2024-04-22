@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Product } from '../models/products';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { ValidatorFn, AbstractControl } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
@@ -24,5 +25,10 @@ export class ProductService {
       },
       error: (error) => 'Error al obtener la lista de productos' + error,
     });
+  }
+
+  setProduct(product: Product): void {
+    this._products.push(product);
+    this.products.next(this._products);
   }
 }

@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BasicComponent } from './basic.component';
+import { SucessComponent } from './sucess.component';
 
-describe('BasicComponent', () => {
-  let component: BasicComponent;
-  let fixture: ComponentFixture<BasicComponent>;
+describe('SucessComponent', () => {
+  let component: SucessComponent;
+  let fixture: ComponentFixture<SucessComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [BasicComponent]
+      declarations: [SucessComponent]
     });
-    fixture = TestBed.createComponent(BasicComponent);
+    fixture = TestBed.createComponent(SucessComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

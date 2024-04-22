@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BasicComponent } from './components/basic.component';
+import { SucessComponent } from './components/sucess.component';
 
 const routes: Routes = [
   {
     path: '',
-    children: [
-      { path: 'main', component: BasicComponent },
-      { path: '**', redirectTo: 'main' },
-    ],
+    component: SucessComponent,
   },
 ];
 
@@ -16,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class BasicRoutingModule {}
+export class SuccessRoutingModule {}

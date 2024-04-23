@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../models/products';
+
 import { BehaviorSubject, Observable } from 'rxjs';
-import { CartProduct } from '../models/cartProducts';
+import { CartProduct } from '../interfaces/models/CartProduct';
+import { Product } from '../interfaces/models/Product';
+import { ICartProduct } from '../interfaces/models/ICartProduct';
+import { ICartProductContract } from '../interfaces/contracts/ICartProductContract';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +23,10 @@ export class CartService {
   public initializeCart() {
     const storedCart = sessionStorage.getItem('cart');
     if (storedCart) {
-      this._cartProductList = JSON.parse(storedCart);
+      const cartFromStorage: ICartProductContract[] = JSON.parse(storedCart);
+      this._cartProductList = cartFromStorage.map(
+        (item) => new CartProduct(item)
+      );
       this.cartProducts.next(this._cartProductList);
     }
   }
@@ -32,11 +38,12 @@ export class CartService {
   }
 
   private incrementNumProduct(product: Product): void {
-    let cartProduct;
+    let cartProduct: CartProduct | undefined;
     if ((cartProduct = this.findProductOnCard(product))) {
       cartProduct.quantity += 1;
     } else {
-      this._cartProductList.push({ product, quantity: 1 });
+      const newCartProduct = new CartProduct({ product, quantity: 1 });
+      this._cartProductList.push(newCartProduct);
     }
   }
 
@@ -50,12 +57,12 @@ export class CartService {
 
   public deleteFromCart(index: number): void {
     if (index !== -1) {
+      const deletedProduct = this._cartProductList[index];
       this._cartProductList.splice(index, 1);
-      this._cartProductList[index].product.onCart = false;
+      deletedProduct.product.onCart = false;
       this.cartProducts.next(this._cartProductList);
+      this.updateSessionStorage();
     }
-
-    this.updateSessionStorage();
   }
 
   private updateSessionStorage() {

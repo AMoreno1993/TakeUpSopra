@@ -1,11 +1,5 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  numberAttribute,
-} from '@angular/core';
-import { CartProduct } from 'src/app/models/cartProducts';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CartProduct } from 'src/app/interfaces/models/CartProduct';
 
 @Component({
   selector: 'app-product-list',

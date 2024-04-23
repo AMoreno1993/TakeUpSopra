@@ -13,7 +13,6 @@ export class AppComponent implements OnInit {
     private cartService: CartService
   ) {}
 
-  //AQUI INICIALIZO EL CARRITO , NO EN EL CONSTRUCTOR DEL SERVICE
   ngOnInit(): void {
     this.productService.initializeProducts();
     this.cartService.initializeCart();

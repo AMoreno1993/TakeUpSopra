@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { Product } from 'src/app/models/products';
 import { ProductService } from '../services/product.service';
 import { CartService } from '../services/cart.service';
-import { CartProduct } from '../models/cartProducts';
+import { Product } from '../interfaces/models/Product';
+import { CartProduct } from '../interfaces/models/CartProduct';
 
 @Component({
   selector: 'app-home',

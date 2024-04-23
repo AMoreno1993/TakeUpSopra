@@ -1,6 +1,7 @@
-import { type Review } from './review';
+import { Product } from './Product';
+import { Review } from './Review';
 
-export interface Product {
+export interface IProduct {
   id: number;
   product: string;
   price: number;

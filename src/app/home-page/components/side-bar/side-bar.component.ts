@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Product } from '../../../models/products';
+import { Product } from 'src/app/interfaces/models/Product';
 
 @Component({
   selector: 'app-side-bar',

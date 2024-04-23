@@ -1,4 +1,4 @@
-export interface Review {
+export interface IReviewContract {
   img: string;
   name: string;
   rating: number;

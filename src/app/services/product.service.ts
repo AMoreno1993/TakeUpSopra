@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, map, tap } from 'rxjs';
 import { ValidatorFn, AbstractControl } from '@angular/forms';
 import { Product } from '../interfaces/models/Product';
 import { IProductContract } from '../interfaces/contracts/IProductContract';
+import { AllProducts } from '../interfaces/models/AllProducts';
 
 @Injectable({
   providedIn: 'root',
@@ -23,12 +24,13 @@ export class ProductService {
       .get<IProductContract[]>(this.url)
       .pipe(
         map((data: IProductContract[]) => {
-          return data.map((item) => new Product(item));
+          return new AllProducts(data);
         })
+        //tap(() => console.log('hola estoy mapeando'))
       )
       .subscribe({
-        next: (products: Product[]) => {
-          this._products = products;
+        next: (product: AllProducts) => {
+          this._products = product.all;
           this.products.next(this._products);
         },
         error: (error) => 'Error al obtener la lista de productos' + error,
